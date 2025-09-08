@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://yf38l7k03t5q"]
+
+[ext_resource type="Texture2D" uid="uid://bmepyv27hpu6r" path="res://white-circle-svgrepo-com.svg" id="1_0g0yb"]
+[ext_resource type="Script" uid="uid://cn53wc1o3c7v0" path="res://objects/client/client.gd" id="1_t7wm4"]
+[ext_resource type="PackedScene" uid="uid://cql6b03hki23o" path="res://objects/dialog/card/dialog_card.tscn" id="3_mkeol"]
+[ext_resource type="PackedScene" uid="uid://drbna3qqr8bxa" path="res://objects/dialog/wait/dialog_wait.tscn" id="4_5mo66"]
+[ext_resource type="AudioStream" uid="uid://bx52t00n5etnl" path="res://assets/sfx/pickupCoin.wav" id="5_kdk1u"]
+[ext_resource type="AudioStream" uid="uid://detvpa2nex055" path="res://assets/sfx/mixkit-lost-kid-sobbing-474.wav" id="6_3l1mg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w2qv7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0g0yb"]
+radius = 22.0227
+
+[node name="Client" type="CharacterBody2D"]
+script = ExtResource("1_t7wm4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_0g0yb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("CanvasItemMaterial_w2qv7")
+shape = SubResource("CircleShape2D_0g0yb")
+
+[node name="Dialog" type="Node2D" parent="."]
+
+[node name="DialogCard" parent="Dialog" instance=ExtResource("3_mkeol")]
+visible = false
+position = Vector2(-34, -35)
+rotation = -0.785397
+
+[node name="DialogWait" parent="Dialog" instance=ExtResource("4_5mo66")]
+position = Vector2(-24, -40)
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_kdk1u")
+
+[node name="Mixkit-lost-kid-sobbing-474" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3l1mg")
+volume_db = 5.0
+
+[connection signal="wait_time_ended" from="Dialog/DialogWait" to="." method="_on_dialog_wait_wait_time_ended"]

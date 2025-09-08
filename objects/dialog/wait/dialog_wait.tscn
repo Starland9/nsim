@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://drbna3qqr8bxa"]
+
+[ext_resource type="Script" uid="uid://cfsc7o4ckncab" path="res://dialog_wait.gd" id="1_tocdb"]
+
+[node name="DialogWait" type="Node2D"]
+script = ExtResource("1_tocdb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 47.0
+offset_bottom = 11.0
+show_percentage = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="value_changed" from="ProgressBar" to="." method="_on_progress_bar_value_changed"]
