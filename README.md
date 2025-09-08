@@ -2,6 +2,10 @@
 
 NSIM est un jeu de simulation et de gestion de magasin en 2D développé avec le moteur Godot Engine. Le joueur doit gérer les clients qui arrivent dans son magasin pour maximiser ses profits et la satisfaction de sa clientèle.
 
+## 🎬 Trailer
+
+![Aperçu du jeu](trailer.gif)
+
 ## 🕹️ Concept du Jeu
 
 Le but du jeu est de servir les clients qui se présentent aux différents stands de votre magasin. Vous devez être rapide et attentif pour ne pas les faire attendre trop longtemps !
