@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c3m0ixjxcghn3"]
+
+[ext_resource type="FontFile" uid="uid://bj6wd0cfx5wlv" path="res://assets/fonts/RubikMonoOne-Regular.ttf" id="1_rjgu6"]
+
+[resource]
+default_font = ExtResource("1_rjgu6")

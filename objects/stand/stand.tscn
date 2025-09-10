@@ -1,24 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://bviqdl6dsj02q"]
 
 [ext_resource type="Script" uid="uid://bashpwg818gj4" path="res://objects/stand/stand.gd" id="1_vidql"]
-[ext_resource type="Texture2D" uid="uid://dpuwo0ho1ps5s" path="res://assets/svgs/shop-svgrepo-com.svg" id="2_w505n"]
+[ext_resource type="Texture2D" uid="uid://cuhqef3evggeo" path="res://assets/images/stands/sprite_2.png" id="2_w505n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb6yx"]
-size = Vector2(88.5, 93.5)
+size = Vector2(307, 353)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w505n"]
-radius = 78.0064
+radius = 229.961
 
 [node name="Stand" type="StaticBody2D"]
 script = ExtResource("1_vidql")
 
 [node name="ColorRect" type="Sprite2D" parent="."]
 position = Vector2(48.25, 48.25)
-scale = Vector2(0.114375, 0.114375)
 texture = ExtResource("2_w505n")
+region_rect = Rect2(48, 96, 296, 344)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(44.75, 46.25)
+visible = false
+position = Vector2(49.5, 45.5)
 shape = SubResource("RectangleShape2D_yb6yx")
 disabled = true
 
@@ -34,6 +35,7 @@ autowrap_mode = 2
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(46, 52)
 shape = SubResource("CircleShape2D_w505n")
 

@@ -5,10 +5,9 @@ const client_scene = preload("res://objects/client/client.tscn")
 @onready var entry_point := $EntryPoint
 @onready var exit_point := $ExitPoint
 @onready var stands := $Stands
-@onready var money := $HUD/Money
 @onready var client_timer := $ClientsTimer
-@onready var good_clients := $HUD/GoodClients
-@onready var bad_clients := $HUD/BadClients
+@onready var bg_music = $BgMusic
+@onready var hud = $HUD
 
 var _current_stand : Stand = null
 var _money = 0
@@ -24,15 +23,16 @@ func _pick_random_stand():
 
 func _update_money(new_amount: int):
 	_money += new_amount
-	money.text = "Argent "+str(_money)
+	hud.update_money(_money)
 
 func _add_good_client():
 	_good_clients += 1
-	good_clients.text = "Client satisfaits: " + str(_good_clients)
+	hud.set_good_client(_good_clients)
 
 func _add_bad_client():
 	_bad_clients += 1
-	bad_clients.text = "Client insatisfaits: " + str(_bad_clients)
+	hud.set_bad_client(_bad_clients)
+	_update_money(-500)
 
 
 func _init_client():
@@ -44,6 +44,7 @@ func _init_client():
 	client.set_exit(exit_point)
 	client.buyed.connect(_on_client_buyed)
 	client.wait_ended.connect(_on_client_wait_ended)
+	client.scale /= 2.8
 
 func _on_client_buyed(amount: int):
 	_update_money(amount)
@@ -55,10 +56,13 @@ func _on_client_wait_ended():
 
 
 func _on_clients_timer_timeout() -> void:
-	client_timer.wait_time = randf_range(0, 1)
+	client_timer.wait_time = randf_range(0, 2)
 	_init_client()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is NClient:
-		_update_money(body.get_total_money())
 		body.exit()
+
+
+func _on_bg_music_finished() -> void:
+	bg_music.play()

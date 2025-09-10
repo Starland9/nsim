@@ -9,8 +9,8 @@ script = ExtResource("1_tocdb")
 wait_time = 0.1
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_right = 47.0
-offset_bottom = 11.0
+offset_right = 124.0
+offset_bottom = 16.0
 show_percentage = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,25 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://cql6b03hki23o"]
 
-[ext_resource type="Texture2D" uid="uid://kqx2xvlii4p3" path="res://assets/svgs/message-svgrepo-com.svg" id="1_1buvb"]
 [ext_resource type="Script" uid="uid://bp60fo4s5h7s4" path="res://objects/dialog/card/dialog_card.gd" id="1_qnxsx"]
+[ext_resource type="Texture2D" uid="uid://bdk74daypxrri" path="res://assets/images/gui/TextBox_Blank_Middle.svg" id="2_qnxsx"]
 
 [node name="DialogCard" type="Node2D"]
 script = ExtResource("1_qnxsx")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -17.0
-offset_right = 20.0
-offset_bottom = 12.0
-
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.06375, 0.06375)
-texture = ExtResource("1_1buvb")
+texture = ExtResource("2_qnxsx")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -14.0
-offset_top = -12.0
-offset_right = 26.0
-offset_bottom = 11.0
+[node name="Label" type="Label" parent="Sprite"]
+offset_left = -492.0
+offset_top = -282.0
+offset_right = 499.0
+offset_bottom = 162.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "1"
+theme_override_font_sizes/font_size = 128
+text = "Donne moi les plantains boss"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

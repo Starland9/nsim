@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://gjqkcvdgoup1"]
+[gd_scene load_steps=8 format=3 uid="uid://gjqkcvdgoup1"]
 
 [ext_resource type="PackedScene" uid="uid://bviqdl6dsj02q" path="res://objects/stand/stand.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://ck0bnjhevnac2" path="res://scenes/main/main.gd" id="1_k2fmo"]
+[ext_resource type="Texture2D" uid="uid://dmj32a11off65" path="res://assets/images/backgrounds/sand_ground.png" id="2_6q06x"]
 [ext_resource type="AudioStream" uid="uid://b65qlwy3kunkn" path="res://assets/sfx/mixkit-coins-handling-1939.wav" id="3_l3cfh"]
-[ext_resource type="AudioStream" uid="uid://bb51gwkomfsqc" path="res://assets/sfx/mixkit-shopping-center-crowd-377.wav" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://cl7f0axpvoqkr" path="res://scenes/hud/hud.tscn" id="4_ow5a4"]
+[ext_resource type="AudioStream" uid="uid://dfbkcnmtxu4xm" path="res://assets/sfx/cute.mp3" id="6_ow5a4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iuonh"]
 radius = 34.0
@@ -11,15 +13,17 @@ radius = 34.0
 [node name="Main" type="Node2D"]
 script = ExtResource("1_k2fmo")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1153.0
-offset_bottom = 649.0
+[node name="ColorRect" type="TextureRect" parent="."]
+offset_right = 1096.0
+offset_bottom = 1848.0
+texture = ExtResource("2_6q06x")
+stretch_mode = 1
 
 [node name="EntryPoint" type="Marker2D" parent="."]
-position = Vector2(571, 611)
+position = Vector2(328, 1224)
 
 [node name="ExitPoint" type="Marker2D" parent="."]
-position = Vector2(217, 10)
+position = Vector2(664, 40)
 
 [node name="Area2D" type="Area2D" parent="ExitPoint"]
 
@@ -29,62 +33,40 @@ shape = SubResource("CircleShape2D_iuonh")
 [node name="Stands" type="Node2D" parent="."]
 
 [node name="Stand" parent="Stands" instance=ExtResource("1_hyk8p")]
-position = Vector2(164, 113)
+position = Vector2(280, 168)
+scale = Vector2(0.5, 0.5)
 service_time = 10
 
 [node name="Stand2" parent="Stands" instance=ExtResource("1_hyk8p")]
-position = Vector2(552, 64)
+position = Vector2(552, 624)
+scale = Vector2(0.5, 0.5)
 service_time = 15
-product_name = "Chaussures"
 unit_price = 5000
 
 [node name="Stand3" parent="Stands" instance=ExtResource("1_hyk8p")]
-position = Vector2(926, 306)
+position = Vector2(136, 768)
+scale = Vector2(0.5, 0.5)
 service_time = 4
-product_name = "Beignets haricots"
 unit_price = 500
 
 [node name="Stand4" parent="Stands" instance=ExtResource("1_hyk8p")]
 position = Vector2(82, 382)
+scale = Vector2(0.5, 0.5)
 service_time = 10
 
 [node name="Stand5" parent="Stands" instance=ExtResource("1_hyk8p")]
-position = Vector2(867, 51)
+position = Vector2(592, 992)
+scale = Vector2(0.5, 0.5)
 service_time = 15
-product_name = "Chaussures"
 unit_price = 5000
 
 [node name="Stand6" parent="Stands" instance=ExtResource("1_hyk8p")]
-position = Vector2(476, 297)
+position = Vector2(576, 248)
+scale = Vector2(0.5, 0.5)
 service_time = 4
-product_name = "Beignets haricots"
 unit_price = 500
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Money" type="Label" parent="HUD"]
-offset_left = 3.0
-offset_top = -1.0
-offset_right = 77.0
-offset_bottom = 22.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Argent : 0"
-
-[node name="GoodClients" type="Label" parent="HUD"]
-offset_left = 3.0
-offset_top = 27.0
-offset_right = 43.0
-offset_bottom = 50.0
-theme_override_colors/font_color = Color(0, 0.539741, 0.426026, 1)
-text = "Clients satisfaits: 0"
-
-[node name="BadClients" type="Label" parent="HUD"]
-offset_left = 3.0
-offset_top = 51.0
-offset_right = 147.0
-offset_bottom = 74.0
-theme_override_colors/font_color = Color(0.80659, 0, 0.151888, 1)
-text = "Clients mécontent: 0"
+[node name="HUD" parent="." instance=ExtResource("4_ow5a4")]
 
 [node name="ClientsTimer" type="Timer" parent="."]
 autostart = true
@@ -93,10 +75,11 @@ autostart = true
 stream = ExtResource("3_l3cfh")
 volume_db = 10.0
 
-[node name="Mixkit-shopping-center-crowd-377" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_l3cfh")
-volume_db = -1.351
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ow5a4")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="ExitPoint/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ClientsTimer" to="." method="_on_clients_timer_timeout"]
+[connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

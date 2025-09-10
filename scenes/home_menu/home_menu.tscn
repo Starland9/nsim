@@ -1,0 +1,259 @@
+[gd_scene load_steps=11 format=3 uid="uid://0p4d7035ah3n"]
+
+[ext_resource type="Theme" uid="uid://c3m0ixjxcghn3" path="res://themes/main_theme.tres" id="1_1pmtq"]
+[ext_resource type="Texture2D" uid="uid://dsusmypj8dil3" path="res://assets/images/backgrounds/grass (1).png" id="2_1pmtq"]
+[ext_resource type="Script" uid="uid://c8joq3wgsaf7a" path="res://scenes/home_menu/home_menu.gd" id="2_cokdo"]
+[ext_resource type="Texture2D" uid="uid://dmc12q53j8bny" path="res://assets/images/gui/ButtonText_Large_Orange_Round.svg" id="3_a4d3p"]
+[ext_resource type="PackedScene" uid="uid://yf38l7k03t5q" path="res://objects/client/client.tscn" id="4_a4d3p"]
+[ext_resource type="PackedScene" uid="uid://bviqdl6dsj02q" path="res://objects/stand/stand.tscn" id="5_rppr1"]
+[ext_resource type="AudioStream" uid="uid://dfbkcnmtxu4xm" path="res://assets/sfx/cute.mp3" id="7_6tg2y"]
+
+[sub_resource type="Animation" id="Animation_j8y7t"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayBtn:size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1159, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayBtn:size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(358, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayBtn:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(122, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayBtn:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1037, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayBtn:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayBtn:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_6tg2y"]
+resource_name = "play_btn_bounce"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayBtn:size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1159, -0.25, 0, 0.25, 0, 1159, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayBtn:size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(358, -0.25, 0, 0.25, 0, 358, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayBtn:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(122, -0.25, 0, 0.25, 0, 13, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayBtn:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1037, -0.25, 0, 0.25, 0, 992, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayBtn:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayBtn:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ko046"]
+_data = {
+&"RESET": SubResource("Animation_j8y7t"),
+&"play_btn_bounce": SubResource("Animation_6tg2y")
+}
+
+[node name="HomeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1pmtq")
+script = ExtResource("2_cokdo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ko046")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.846735, 0.846735, 0.846735, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1pmtq")
+stretch_mode = 1
+
+[node name="NISM" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.909804, 0.431373, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
+text = "NSIM"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 211.0
+offset_right = 628.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 28
+text = "Ton petit marché à toi"
+horizontal_alignment = 1
+
+[node name="Stand" parent="." instance=ExtResource("5_rppr1")]
+position = Vector2(304, 491)
+
+[node name="PlayBtn" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -238.0
+offset_top = -243.0
+offset_right = 921.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("3_a4d3p")
+
+[node name="Jouer" type="Label" parent="PlayBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 150
+text = "Jouer"
+
+[node name="Clients" type="Node2D" parent="."]
+
+[node name="Client" parent="Clients" instance=ExtResource("4_a4d3p")]
+position = Vector2(862, 1156)
+
+[node name="Client2" parent="Clients" instance=ExtResource("4_a4d3p")]
+position = Vector2(-224, 243)
+
+[node name="Client3" parent="Clients" instance=ExtResource("4_a4d3p")]
+position = Vector2(-298, 1034)
+
+[node name="BgSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6tg2y")
+autoplay = true
+
+[connection signal="button_up" from="PlayBtn" to="." method="_on_play_btn_button_up"]
