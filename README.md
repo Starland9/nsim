@@ -15,8 +15,8 @@ Le but du jeu est de servir les clients qui se présentent aux différents stand
 2.  **Phase d'attente :** Une fois arrivé à un stand, le client patiente. Une jauge (ou un état) indique son temps d'attente maximum.
 3.  **Interaction :** Pour servir un client, le joueur doit **cliquer** sur lui avant la fin de son temps de patience.
 4.  **Résultats :**
-    *   **Client satisfait :** Si vous servez le client à temps, il effectue un achat. Votre argent augmente, ainsi que votre score de "clients satisfaits".
-    *   **Client insatisfait :** Si le temps d'attente est écoulé avant que vous ne puissiez le servir, le client partira mécontent, ce qui incrémente le compteur de "clients insatisfaits".
+	*   **Client satisfait :** Si vous servez le client à temps, il effectue un achat. Votre argent augmente, ainsi que votre score de "clients satisfaits".
+	*   **Client insatisfait :** Si le temps d'attente est écoulé avant que vous ne puissiez le servir, le client partira mécontent, ce qui incrémente le compteur de "clients insatisfaits".
 
 Le défi est de gérer l'afflux de clients pour obtenir le meilleur score possible.
 
@@ -34,10 +34,10 @@ Le projet est organisé comme suit :
 
 -   `scenes/main/`: Contient la scène principale du jeu (`main.tscn`) et son script associé qui gère la logique globale (apparition des clients, score, etc.).
 -   `objects/`: Renferme les scènes et scripts des différents éléments du jeu.
-    -   `client/`: Logique du client (déplacement, attente, achat).
-    -   `stand/`: Logique des stands de vente.
-    -   `dialog/`: Composants UI qui apparaissent au-dessus des clients (temps d'attente, etc.).
+	-   `client/`: Logique du client (déplacement, attente, achat).
+	-   `stand/`: Logique des stands de vente.
+	-   `dialog/`: Composants UI qui apparaissent au-dessus des clients (temps d'attente, etc.).
 -   `assets/`: Contient les ressources graphiques et sonores.
-    -   `sfx/`: Effets sonores (achats, clients mécontents).
-    -   `svgs/`: Icônes et autres éléments visuels.
+	-   `sfx/`: Effets sonores (achats, clients mécontents).
+	-   `svgs/`: Icônes et autres éléments visuels.
 -   `project.godot`: Le fichier principal de configuration du projet Godot.

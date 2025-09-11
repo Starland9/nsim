@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0p4d7035ah3n"]
+[gd_scene load_steps=12 format=3 uid="uid://0p4d7035ah3n"]
 
 [ext_resource type="Theme" uid="uid://c3m0ixjxcghn3" path="res://themes/main_theme.tres" id="1_1pmtq"]
 [ext_resource type="Texture2D" uid="uid://dsusmypj8dil3" path="res://assets/images/backgrounds/grass (1).png" id="2_1pmtq"]
@@ -153,6 +153,11 @@ _data = {
 &"play_btn_bounce": SubResource("Animation_6tg2y")
 }
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6tg2y"]
+vertices = PackedVector2Array(1037.51, -25.1328, 1104.78, 1220.45, 915.844, 1434.59, -503.188, 1308.91, -387.828, -45.8594)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-397, -56, 1047, -35, 1115, 1224, 920, 1445, -514, 1318)])
+
 [node name="HomeMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -255,5 +260,8 @@ position = Vector2(-298, 1034)
 [node name="BgSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_6tg2y")
 autoplay = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_6tg2y")
 
 [connection signal="button_up" from="PlayBtn" to="." method="_on_play_btn_button_up"]

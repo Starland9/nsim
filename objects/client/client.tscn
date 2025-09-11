@@ -39,4 +39,9 @@ stream = ExtResource("5_kdk1u")
 [node name="AudioSay" parent="." instance=ExtResource("7_48ia3")]
 pitch_scale = 1.5
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 50.0
+
 [connection signal="wait_time_ended" from="Dialog/DialogWait" to="." method="_on_dialog_wait_wait_time_ended"]

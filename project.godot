@@ -13,14 +13,17 @@ config_version=5
 config/name="NSIM"
 run/main_scene="uid://0p4d7035ah3n"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.909804, 0.431373, 0, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://skbhswi5or67"
+config/icon="uid://skbhswi5or67"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
+window/stretch/aspect="keep_height"
 window/handheld/orientation=1
 
 [rendering]

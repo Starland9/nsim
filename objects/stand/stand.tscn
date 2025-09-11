@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cuhqef3evggeo" path="res://assets/images/stands/sprite_2.png" id="2_w505n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb6yx"]
-size = Vector2(307, 353)
+size = Vector2(269, 345)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_w505n"]
-radius = 229.961
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w505n"]
+size = Vector2(299, 359)
 
 [node name="Stand" type="StaticBody2D"]
 script = ExtResource("1_vidql")
@@ -18,8 +18,7 @@ texture = ExtResource("2_w505n")
 region_rect = Rect2(48, 96, 296, 344)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(49.5, 45.5)
+position = Vector2(47.5, 47.5)
 shape = SubResource("RectangleShape2D_yb6yx")
 disabled = true
 
@@ -35,8 +34,7 @@ autowrap_mode = 2
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(46, 52)
-shape = SubResource("CircleShape2D_w505n")
+position = Vector2(48.5, 48.5)
+shape = SubResource("RectangleShape2D_w505n")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

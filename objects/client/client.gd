@@ -16,6 +16,7 @@ var _waiting := false
 @onready var sprite := $Sprite2D
 @onready var pickup_sound := $Pickup
 @onready var audio_say : AudioSay = $AudioSay
+@onready var nav_agent = $NavigationAgent2D
 
 
 @export var is_menu := false
@@ -28,26 +29,37 @@ func _ready() -> void:
 
 func set_target_stand(stand: Stand):
 	_target_stand = stand
+	nav_agent.target_position = stand.position
 
 func set_exit(exitx: Node2D):
 	_exit_node = exitx
 
 func go_to_exit():
 	wait_ended.emit()
-	#shape.disabled = true
+	shape.disabled = true
 	_target_stand = null
+	if _exit_node:
+		nav_agent.target_position = _exit_node.position
 	_waiting = false
 	dialog_wait.hide()
 	dialog_card.hide()
 
 func _physics_process(_delta: float) -> void:
-	var _target = _target_stand if _target_stand else _exit_node if _exit_node else null
-	if _target and not _waiting:
-		var dist = _target.position - position
-		if dist.length() < 50:
-			return
-		var dir = dist.normalized()
-		velocity = _walk_speed * dir
+	if nav_agent.is_navigation_finished():
+		return
+
+	#var _target = _target_stand if _target_stand else _exit_node if _exit_node else null
+	#if _target and not _waiting:
+		#var dist = _target.position - position
+		#if dist.length() < 50:
+			#return
+		#var dir = dist.normalized()
+		#velocity = _walk_speed * dir
+		#move_and_slide()
+	if not _waiting:
+		var next_point = nav_agent.get_next_path_position()
+		var dir = (next_point - global_position).normalized()
+		velocity = dir * (_walk_speed + (-50 + randi() % 150))
 		move_and_slide()
 
 
@@ -58,17 +70,17 @@ func wait():
 		dialog_card.set_text(str((randi() % 10)))
 		dialog_wait.show()
 
-		#if is_menu:
 		say(_target_stand.get_product_text())
 
 func get_total_money():
 	return randi() % 1000
 
 func say(something: String):
-	dialog_card.set_text(something)
-	dialog_card.show()
-	audio_say.play_dialog()
-
+	if is_menu:
+		dialog_card.set_text(something)
+		dialog_card.show()
+	if _target_stand:
+		audio_say.play_dialog(_target_stand)
 
 
 func _on_dialog_wait_wait_time_ended() -> void:

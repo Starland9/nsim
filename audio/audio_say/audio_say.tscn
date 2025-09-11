@@ -10,4 +10,6 @@ mix_rate = 48000
 [node name="AudioSay" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamWAV_3l1mg")
 volume_db = 10.0
+pitch_scale = 1.8
+bus = &"ClientVoice"
 script = ExtResource("1_s86vc")

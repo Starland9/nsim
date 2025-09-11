@@ -38,7 +38,7 @@ func _add_bad_client():
 func _init_client():
 	var client := client_scene.instantiate()
 	add_child(client)
-	client.position = entry_point.position
+	client.position = Vector2(randf_range(0, 400), entry_point.position.y)
 	_current_stand = _pick_random_stand()
 	client.set_target_stand(_current_stand)
 	client.set_exit(exit_point)
@@ -56,7 +56,7 @@ func _on_client_wait_ended():
 
 
 func _on_clients_timer_timeout() -> void:
-	client_timer.wait_time = randf_range(0, 2)
+	client_timer.wait_time = randf_range(.2, 3)
 	_init_client()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
