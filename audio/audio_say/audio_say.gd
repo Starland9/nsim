@@ -1,4 +1,4 @@
-extends AudioStreamPlayer
+extends AudioStreamPlayer2D
 class_name AudioSay
 
 var dialog_stream : AudioStream
@@ -8,7 +8,6 @@ var mouf_stream : AudioStream
 const base_path = "res://assets/sfx/real_voice"
 
 func _ready() -> void:
-	randomize()
 	pitch_scale = randf_range(1.2, 1.8)
 	volume_db = randf_range(-2, 10)
 	mouf_stream = _get_random_stream("/moufs")
@@ -28,7 +27,9 @@ func _get_random_stream(path: String):
 
 	if not files.is_empty():
 		var choice = files.pick_random()
-		return load(full_path + '/' + choice)
+		var file = full_path + "/" + choice
+		var sound := AudioStreamWAV.load_from_file(file)
+		return sound
 
 func play_dialog(stand: Stand):
 	match stand.product:

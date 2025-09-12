@@ -1,0 +1,33 @@
+Politique de Confidentialité pour Nsim
+
+Date d'entrée en vigueur : 11 septembre 2025
+
+Cette politique de confidentialité décrit la manière dont les informations sont traitées par l'application mobile "Nsim" (ci-après "l'Application").
+
+**1. Collecte et Utilisation des Données**
+
+Nous tenons à vous informer que l'Application **ne collecte, ne stocke, ni ne partage aucune donnée personnelle identifiable** de ses utilisateurs.
+
+Toute la progression dans le jeu, les scores, ou les sauvegardes sont stockés localement sur votre propre appareil. Ces informations ne nous sont jamais transmises et nous n'y avons aucun accès.
+
+**2. Permissions de l'Application**
+
+L'Application peut demander certaines permissions pour fonctionner correctement (par exemple, l'accès au stockage pour sauvegarder votre partie). Ces permissions sont utilisées strictement pour les fonctionnalités de base du jeu et ne servent en aucun cas à collecter ou à accéder à vos informations personnelles.
+
+**3. Services Tiers**
+
+L'Application n'intègre aucun service tiers, tel que des régies publicitaires ou des outils d'analyse, qui pourrait collecter des informations à votre sujet.
+
+**4. Confidentialité des Enfants**
+
+Nous ne collectons sciemment aucune information personnelle identifiable auprès d'enfants. Étant donné que l'Application ne collecte aucune donnée, elle est conçue pour être sûre pour les utilisateurs de tous âges.
+
+**5. Modifications de cette Politique de Confidentialité**
+
+Nous nous réservons le droit de mettre à jour cette politique de confidentialité à tout moment. Toute modification sera publiée sur cette même page. Nous vous conseillons de la consulter régulièrement.
+
+**6. Nous Contacter**
+
+Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à l'adresse suivante :
+
+[REMPLACEZ CECI PAR VOTRE ADRESSE E-MAIL]

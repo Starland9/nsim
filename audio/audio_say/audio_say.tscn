@@ -7,9 +7,10 @@ data = PackedByteArray("cW9hZgABPlgBALuAFAAIGAAAAAAAAAAAAAAAAOAAQAAA0Q0CAAUUUQRR
 format = 3
 mix_rate = 48000
 
-[node name="AudioSay" type="AudioStreamPlayer"]
+[node name="AudioSay" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamWAV_3l1mg")
 volume_db = 10.0
 pitch_scale = 1.8
+max_distance = 200.0
 bus = &"ClientVoice"
 script = ExtResource("1_s86vc")
