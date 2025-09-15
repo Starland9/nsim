@@ -11,6 +11,5 @@ mix_rate = 48000
 stream = SubResource("AudioStreamWAV_3l1mg")
 volume_db = 10.0
 pitch_scale = 1.8
-max_distance = 200.0
 bus = &"ClientVoice"
 script = ExtResource("1_s86vc")

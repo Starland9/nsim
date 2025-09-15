@@ -13,23 +13,13 @@ func _ready() -> void:
 	mouf_stream = _get_random_stream("/moufs")
 
 func _get_random_stream(path: String):
-	var full_path = base_path + path
-	var dir := DirAccess.open(full_path)
-	var files : Array[String] = []
-	if dir:
-		dir.list_dir_begin()
-		var file := dir.get_next()
-		while not file.is_empty():
-			if not dir.current_is_dir() and file.ends_with(".wav"):
-				files.append(file)
-			file = dir.get_next()
-		dir.list_dir_end()
-
+	var files := ResourceLoader.list_directory(base_path + "/" + path)
 	if not files.is_empty():
-		var choice = files.pick_random()
-		var file = full_path + "/" + choice
-		var sound := AudioStreamWAV.load_from_file(file)
-		return sound
+		var choice = files[randi() % files.size()]
+		var file = base_path + path + "/" + choice
+		return ResourceLoader.load(file, "AudioStream", ResourceLoader.CACHE_MODE_IGNORE)
+
+
 
 func play_dialog(stand: Stand):
 	match stand.product:
