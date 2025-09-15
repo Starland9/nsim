@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0p4d7035ah3n"]
+[gd_scene load_steps=10 format=3 uid="uid://0p4d7035ah3n"]
 
 [ext_resource type="Theme" uid="uid://c3m0ixjxcghn3" path="res://themes/main_theme.tres" id="1_1pmtq"]
 [ext_resource type="Texture2D" uid="uid://dsusmypj8dil3" path="res://assets/images/backgrounds/grass (1).png" id="2_1pmtq"]
@@ -7,151 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://yf38l7k03t5q" path="res://objects/client/client.tscn" id="4_a4d3p"]
 [ext_resource type="PackedScene" uid="uid://bviqdl6dsj02q" path="res://objects/stand/stand.tscn" id="5_rppr1"]
 [ext_resource type="AudioStream" uid="uid://dfbkcnmtxu4xm" path="res://assets/sfx/cute.mp3" id="7_6tg2y"]
-
-[sub_resource type="Animation" id="Animation_j8y7t"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayBtn:size:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1159, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayBtn:size:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(358, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayBtn:position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(122, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayBtn:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1037, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayBtn:scale:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PlayBtn:scale:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_6tg2y"]
-resource_name = "play_btn_bounce"
-loop_mode = 2
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayBtn:size:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1159, -0.25, 0, 0.25, 0, 1159, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayBtn:size:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(358, -0.25, 0, 0.25, 0, 358, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayBtn:position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(122, -0.25, 0, 0.25, 0, 13, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayBtn:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1037, -0.25, 0, 0.25, 0, 992, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayBtn:scale:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PlayBtn:scale:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ko046"]
-_data = {
-&"RESET": SubResource("Animation_j8y7t"),
-&"play_btn_bounce": SubResource("Animation_6tg2y")
-}
+[ext_resource type="Texture2D" uid="uid://u8fpxnph4gju" path="res://assets/images/gui/ButtonText_Large_Blank_Round.svg" id="8_j8y7t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6tg2y"]
 vertices = PackedVector2Array(1037.51, -25.1328, 1104.78, 1220.45, 915.844, 1434.59, -503.188, 1308.91, -387.828, -45.8594)
@@ -167,11 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_1pmtq")
 script = ExtResource("2_cokdo")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ko046")
-}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.846735, 0.846735, 0.846735, 1)
@@ -212,39 +63,7 @@ text = "Ton petit marché à toi"
 horizontal_alignment = 1
 
 [node name="Stand" parent="." instance=ExtResource("5_rppr1")]
-position = Vector2(304, 491)
-
-[node name="PlayBtn" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -238.0
-offset_top = -243.0
-offset_right = 921.0
-offset_bottom = 115.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("3_a4d3p")
-
-[node name="Jouer" type="Label" parent="PlayBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -10.0
-offset_right = 34.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 150
-text = "Jouer"
+position = Vector2(310, 410)
 
 [node name="Clients" type="Node2D" parent="."]
 
@@ -262,6 +81,111 @@ stream = ExtResource("7_6tg2y")
 autoplay = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_6tg2y")
 
-[connection signal="button_up" from="PlayBtn" to="." method="_on_play_btn_button_up"]
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayBtn" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = 720.0
+offset_right = 1267.0
+offset_bottom = 1078.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("3_a4d3p")
+
+[node name="Jouer" type="Label" parent="Buttons/PlayBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 120
+text = "Jouer"
+
+[node name="Settings" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = 896.0
+offset_right = 1267.0
+offset_bottom = 1254.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("3_a4d3p")
+
+[node name="Jouer" type="Label" parent="Buttons/Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 120
+text = "Réglages"
+
+[node name="Exit" type="TextureButton" parent="Buttons"]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = 1080.0
+offset_right = 1267.0
+offset_bottom = 1438.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("8_j8y7t")
+
+[node name="Jouer" type="Label" parent="Buttons/Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 120
+text = "Quitter"
+
+[connection signal="button_up" from="Buttons/PlayBtn" to="." method="_on_play_btn_button_up"]
+[connection signal="button_up" from="Buttons/Settings" to="." method="_on_play_btn_button_up"]
+[connection signal="button_up" from="Buttons/Exit" to="." method="_on_exit_button_up"]

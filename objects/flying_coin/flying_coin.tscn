@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://chpvsxuwxdyr6"]
+
+[ext_resource type="Texture2D" uid="uid://crjsybky0g4wp" path="res://assets/images/gui/Icon_Small_Coin.svg" id="1_c2f7b"]
+[ext_resource type="Script" uid="uid://cbjty0wpftuj5" path="res://objects/flying_coin/flying_coin.gd" id="1_v81rw"]
+
+[node name="FlyingCoin" type="Sprite2D"]
+texture = ExtResource("1_c2f7b")
+script = ExtResource("1_v81rw")

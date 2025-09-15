@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name NClient
 
 signal wait_ended
-signal buyed(amount: int)
+signal buyed(amount: int, global_pos: Vector2)
 
 var _walk_speed := 100
 var _target_stand: Stand = null
@@ -91,7 +91,7 @@ func exit():
 	queue_free()
 
 func buy():
-	buyed.emit(randi() % 100)
+	buyed.emit(25 * (1 + randi() % 10), global_position)
 	queue_free()
 
 func _input(event: InputEvent) -> void:
