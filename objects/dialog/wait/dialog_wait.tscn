@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://drbna3qqr8bxa"]
 
-[ext_resource type="Script" uid="uid://cfsc7o4ckncab" path="res://dialog_wait.gd" id="1_tocdb"]
+[ext_resource type="Script" uid="uid://cfsc7o4ckncab" path="res://objects/dialog/wait/dialog_wait.gd" id="1_tocdb"]
 
 [node name="DialogWait" type="Node2D"]
 script = ExtResource("1_tocdb")
