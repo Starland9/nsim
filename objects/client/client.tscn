@@ -40,7 +40,6 @@ stream = ExtResource("5_kdk1u")
 pitch_scale = 1.5
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_postprocessing = 1
 avoidance_enabled = true
 radius = 50.0
 

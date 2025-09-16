@@ -18,7 +18,6 @@ var _waiting := false
 @onready var audio_say : AudioSay = $AudioSay
 @onready var nav_agent = $NavigationAgent2D
 
-
 @export var is_menu := false
 
 
@@ -59,7 +58,7 @@ func _physics_process(_delta: float) -> void:
 	if not _waiting:
 		var next_point = nav_agent.get_next_path_position()
 		var dir = (next_point - global_position).normalized()
-		velocity = dir * (_walk_speed + (-50 + randi() % 150))
+		velocity = dir * _walk_speed
 		move_and_slide()
 
 
@@ -69,6 +68,7 @@ func wait():
 		dialog_wait.set_max_wait_time(_target_stand.service_time)
 		dialog_card.set_text(str((randi() % 10)))
 		dialog_wait.show()
+		enable_shape()
 
 		say(_target_stand.get_product_text())
 
@@ -86,6 +86,7 @@ func say(something: String):
 func _on_dialog_wait_wait_time_ended() -> void:
 	audio_say.play_mouf()
 	go_to_exit()
+	disable_shape()
 
 func exit():
 	queue_free()
@@ -99,3 +100,9 @@ func _input(event: InputEvent) -> void:
 		if event.is_pressed():
 			if event.global_position.distance_to(global_position) <= 30:
 				buy()
+
+func enable_shape():
+	collision_mask = 1
+
+func disable_shape():
+	collision_mask = 0

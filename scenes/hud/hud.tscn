@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl7f0axpvoqkr"]
+[gd_scene load_steps=7 format=3 uid="uid://cl7f0axpvoqkr"]
 
 [ext_resource type="Script" uid="uid://cjgduo6o40xxl" path="res://scenes/hud/hud.gd" id="1_48c2t"]
 [ext_resource type="Theme" uid="uid://c3m0ixjxcghn3" path="res://themes/main_theme.tres" id="2_c45xl"]
 [ext_resource type="Texture2D" uid="uid://cgt15ia64fmmy" path="res://assets/images/gui/ScrollBar_Blank_Scroller.png" id="3_0bx4p"]
 [ext_resource type="Texture2D" uid="uid://crjsybky0g4wp" path="res://assets/images/gui/Icon_Small_Coin.svg" id="3_c45xl"]
+[ext_resource type="Texture2D" uid="uid://b3s1em606vlw6" path="res://assets/images/gui/Icon_Small_WhiteOutline_Pause.svg" id="6_n56i7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgtrf"]
 texture = ExtResource("3_0bx4p")
@@ -49,11 +50,13 @@ offset_bottom = 87.0
 text = "Clients mécontent: 0"
 
 [node name="CoinPanel" type="Panel" parent="Control"]
-offset_left = 503.0
-offset_top = 14.0
-offset_right = 711.0
-offset_bottom = 54.0
+layout_mode = 0
+offset_left = 504.0
+offset_top = 16.0
+offset_right = 712.0
+offset_bottom = 56.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_mgtrf")
+metadata/_edit_group_ = true
 
 [node name="Coin" type="TextureRect" parent="Control/CoinPanel"]
 layout_mode = 0
@@ -73,3 +76,15 @@ offset_bottom = 39.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "0"
+
+[node name="PauseBtn" type="TextureButton" parent="Control"]
+process_mode = 3
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 8.0
+scale = Vector2(0.45762712, 0.45762712)
+texture_normal = ExtResource("6_n56i7")
+
+[connection signal="pressed" from="Control/PauseBtn" to="." method="_on_pause_btn_pressed"]

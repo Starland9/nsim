@@ -56,9 +56,9 @@ sources/2 = SubResource("TileSetAtlasSource_b1x3f")
 radius = 34.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hujxm"]
-vertices = PackedVector2Array(291.102, 1148.45, 840.039, 1635.19, -269.047, 1651.92, -274.953, 1118.22, 7.50781, 1071.32, -205.773, 542, -200.281, 422.32, -192.398, 424.297, -98.9531, 542, 27.7266, 904.227, -146.062, 926.328, -148.938, 673.398, 21.6797, 652.203, 92.4922, 702.633, 286.25, 897.57, 491.172, 880.406, 499.828, 1142, 290.289, 971.148, 175, 967.859, 293.547, 1142, 165.594, 520.039, 448.938, 518.031, 446.047, 796, 228.547, 796, 183.328, 666.359, 401.523, -206.422, 660.297, -156.812, 702.617, 391.352, 301.023, 418.711, 285.992, 344.531, 244.977, 60.3828, 241.898, 271.148, 178.312, 247.594, 178.344, 356.492, 5.20312, 229.117, -0.8125, 74.6719, 161.461, 64.2969, 175, 667.781, 109.008, 613, -86.4297, 277.641, -81.4688, 227.102, -83.9531, 613, -183.289, 285.617)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 17, 16, 19, 4), PackedInt32Array(20, 21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28, 29, 30), PackedInt32Array(31, 30, 29), PackedInt32Array(32, 31, 29, 33, 34), PackedInt32Array(34, 35, 36, 32), PackedInt32Array(20, 24, 37, 38), PackedInt32Array(8, 39, 40, 34, 33, 20, 38, 41), PackedInt32Array(19, 0, 4), PackedInt32Array(37, 18, 4, 9, 13), PackedInt32Array(37, 13, 38), PackedInt32Array(7, 42, 39, 8)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-274, 1657, 853, 1640, 297, 1147, 505, 1147, 496, 875, 281, 893, 285, 966, 180, 963, 180, 672, 225, 801, 451, 801, 454, 513, 171, 515, 183, 361, 282, 350, 297, 424, 708, 396, 665, -161, 399, -212, 240, 59, 237, 264, 183, 244, 166, 59, -6, 70, 0, 224, -86, 222, -91, 273, -188, 281, -197, 418, -205, 416, -211, 547, -103, 547, -88, 618, 103, 618, 89, 694, 23, 647, -154, 669, -151, 932, 22, 910, 3, 1067, -280, 1114)])
+vertices = PackedVector2Array(-175.96875, 526.9297, -198.40625, 422.78906, -192.39844, 424.29688, 282.3672, 1143.5938, 840.40625, 1303.8828, 899.3828, 1814.0234, -293.85938, 1818.9688, -275.0703, 1116.8906, 283.75, 1134.8594, 42.890625, 928.3203, 174.72656, 967.85156, 491.17188, 880.40625, 499.8203, 1141.8203, 290.28906, 971.14844, 183.15625, 528.1875, 448.9375, 518.1875, 446.04688, 796, 228.6875, 796, 197.53906, 695.52344, 40.71875, 920.8828, -146.04688, 926.8281, -148.9375, 673.39844, 21.8125, 652.1797, 71.296875, 684.14844, 401.52344, -206.42188, 660.2969, -156.8125, 702.6172, 391.35156, 301.02344, 418.71094, 285.9922, 344.53125, 242.85938, 64, -81.109375, 223.4375, -2.8828125, 74.8125, 166.15625, 64, 177.85938, 356.53906, -86.42969, 277.64063, 286.25, 897.5703, 189.22656, 696.5469, 76.921875, 679.6719, 20.492188, 523.9531, -183.28906, 285.6172)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(8, 3, 7, 9, 10), PackedInt32Array(11, 12, 8, 13), PackedInt32Array(14, 15, 16, 17, 18), PackedInt32Array(19, 20, 21, 22, 23), PackedInt32Array(24, 25, 26, 27, 28, 29), PackedInt32Array(30, 31, 32, 29, 28, 33, 34), PackedInt32Array(13, 35, 11), PackedInt32Array(10, 13, 8), PackedInt32Array(36, 10, 9, 19, 23, 37), PackedInt32Array(14, 18, 36, 37, 38), PackedInt32Array(33, 14, 38, 34), PackedInt32Array(34, 38, 0, 2, 39)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-299, 1824, 905, 1819, 845, 1300, 288, 1140, 505, 1147, 496, 875, 281, 893, 285, 966, 180, 963, 194, 701, 225, 801, 451, 801, 454, 513, 188, 523, 183, 361, 282, 350, 297, 424, 708, 396, 665, -161, 399, -212, 240, 59, 166, 59, -6, 70, -86, 222, -91, 273, -188, 281, -197, 418, -205, 416, -180, 532, 17, 529, 71, 678, 23, 647, -154, 669, -151, 932, 37, 926, -280, 1114)])
 agent_radius = 5.0
 
 [node name="Main" type="Node2D"]
@@ -75,7 +75,7 @@ tile_map_data = PackedByteArray("AAAAAAIAAgABAAkAAAAAAAMAAgABAAkAAAAAAAQAAgAGAA4
 tile_set = SubResource("TileSet_b1x3f")
 
 [node name="EntryPoint" type="Marker2D" parent="."]
-position = Vector2(319, 1578)
+position = Vector2(358, 1739)
 
 [node name="ExitPoint" type="Marker2D" parent="."]
 position = Vector2(681, -120)
@@ -85,31 +85,33 @@ position = Vector2(681, -120)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitPoint/Area2D"]
 shape = SubResource("CircleShape2D_iuonh")
 
-[node name="Stands" type="Node2D" parent="."]
+[node name="Stands_1" type="Node2D" parent="."]
 
-[node name="Stand" parent="Stands" instance=ExtResource("1_hyk8p")]
+[node name="Stand" parent="Stands_1" instance=ExtResource("1_hyk8p")]
 position = Vector2(280, 168)
 scale = Vector2(0.5, 0.5)
 
-[node name="Stand2" parent="Stands" instance=ExtResource("1_hyk8p")]
+[node name="Stand2" parent="Stands_1" instance=ExtResource("1_hyk8p")]
 position = Vector2(552, 624)
 scale = Vector2(0.5, 0.5)
 
-[node name="Stand3" parent="Stands" instance=ExtResource("1_hyk8p")]
+[node name="Stand3" parent="Stands_1" instance=ExtResource("1_hyk8p")]
 position = Vector2(136, 768)
 scale = Vector2(0.5, 0.5)
 
-[node name="Stand4" parent="Stands" instance=ExtResource("1_hyk8p")]
+[node name="Stand4" parent="Stands_1" instance=ExtResource("1_hyk8p")]
 position = Vector2(82, 382)
 scale = Vector2(0.5, 0.5)
 
-[node name="Stand5" parent="Stands" instance=ExtResource("1_hyk8p")]
+[node name="Stand5" parent="Stands_1" instance=ExtResource("1_hyk8p")]
 position = Vector2(592, 992)
 scale = Vector2(0.5, 0.5)
 
-[node name="Stand6" parent="Stands" instance=ExtResource("1_hyk8p")]
+[node name="Stand6" parent="Stands_1" instance=ExtResource("1_hyk8p")]
 position = Vector2(576, 248)
 scale = Vector2(0.5, 0.5)
+
+[node name="Clients" type="Node2D" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("4_ow5a4")]
 

@@ -5,7 +5,7 @@ const flying_coin_scene = preload("res://objects/flying_coin/flying_coin.tscn")
 
 @onready var entry_point := $EntryPoint
 @onready var exit_point := $ExitPoint
-@onready var stands := $Stands
+@onready var stands := $Stands_1
 @onready var client_timer := $ClientsTimer
 @onready var bg_music = $BgMusic
 @onready var hud = $HUD
@@ -15,17 +15,19 @@ var _current_stand : Stand = null
 var _money = 500
 var _good_clients = 0
 var _bad_clients = 0
+var _unloked_stands : Array[Stand] = []
 
 func _ready() -> void:
+	_money = SaveManager.data.money
+	_good_clients = SaveManager.data.good_clients
+	_bad_clients = SaveManager.data.bad_clients
+	client_timer.wait_time = SaveManager.data.client_wait_time
+
 	randomize()
 	_init_stands()
 
-func _pick_random_stand():
-	var idx = randi_range(0, stands.get_child_count() - 1)
-	var picked: Stand = stands.get_child(idx)
-	if not picked.is_active:
-		return stands.get_child(0)
-	return stands.get_child(idx)
+func _pick_random_unlocked_stand():
+	return _unloked_stands.pick_random()
 
 func _update_money(new_amount: int):
 	_money += new_amount
@@ -50,8 +52,8 @@ func _add_bad_client():
 func _init_client():
 	var client := client_scene.instantiate()
 	add_child(client)
-	client.position = Vector2(randf_range(0, 400), entry_point.position.y)
-	_current_stand = _pick_random_stand()
+	client.position = Vector2(randf_range(0, 720), entry_point.position.y)
+	_current_stand = _pick_random_unlocked_stand()
 	client.set_target_stand(_current_stand)
 	client.set_exit(exit_point)
 	client.buyed.connect(_on_client_buyed)
@@ -75,9 +77,13 @@ func _on_client_wait_ended():
 	_update_money(-1000)
 
 func _on_clients_timer_timeout() -> void:
-	if _good_clients != 0 and _good_clients % 5 == 0 and client_timer.wait_time >= 0.2:
-		client_timer.wait_time -= .1
-	_init_client()
+	if _good_clients != 0 and _good_clients % 5 == 0 and client_timer.wait_time >= 1:
+		client_timer.wait_time = randi() % 5 + 1
+		SaveManager.data.client_wait_time = client_timer.wait_time
+		SaveManager.save_game()
+
+	for i in randi_range(1, int(_good_clients / 10)):
+		_init_client()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is NClient:
@@ -88,18 +94,28 @@ func _on_bg_music_finished() -> void:
 
 func _init_stands():
 	for stand: Stand in stands.get_children():
-		stand.set_unlock_price(2500 * (1 + randi() % 10))
-		stand.unlocked.connect(_on_stand_unlocked)
+		var unlocked_idx = SaveManager.data.unlocked_stands_idx.get_or_add(stands.name, [])
+		if unlocked_idx and stand.name in unlocked_idx:
+			stand.unlock()
+			_unloked_stands.append(stand)
+		else:
+			stand.set_unlock_price(50 * (1 + randi() % 10))
+			stand.lock()
+			stand.unlocked.connect(_on_stand_unlocked.bind(stand))
 
 	var first_stand: Stand = stands.get_child(0)
+	first_stand.unlock_price = 0
 	first_stand.unlock()
+
+func _on_stand_unlocked(stand: Stand):
+	_update_money(-stand.unlock_price)
+	_unloked_stands.append(stand)
+	SaveManager.data.unlocked_stands_idx.get_or_add(stands.name, []).append(stand.name)
+	SaveManager.save_game()
 
 func _actualize_stands():
 	for stand: Stand in stands.get_children():
 		stand.set_current_amount(_money)
-
-func _on_stand_unlocked(amount: int):
-	_update_money(-amount)
 
 func game_over():
 	var __ = get_tree().change_scene_to_file("res://scenes/failed/failed_screen.tscn")

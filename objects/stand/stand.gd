@@ -1,7 +1,7 @@
 extends StaticBody2D
 class_name Stand
 
-signal unlocked(amount: int)
+signal unlocked()
 
 enum StandProduct {
 	BEIGNETS = 2,
@@ -18,7 +18,7 @@ enum StandProduct {
 @onready var powerup_sound := $Powerup
 
 @export var product : StandProduct = StandProduct.BEIGNETS
-@export var unlock_price := 10000
+@export var unlock_price := 0
 @export var is_active := false
 @export var can_unlock := false
 var _current_amount := 0
@@ -27,7 +27,7 @@ var _current_amount := 0
 func _ready() -> void:
 	product = StandProduct.values().pick_random()
 	sprite.texture = load("res://assets/images/stands/sprite_" + str(product) + ".png")
-	lock()
+	unlock()
 
 func set_unlock_price(price: int):
 	unlock_price = price
@@ -54,14 +54,14 @@ func lock():
 	lock_key.hide()
 
 
-func unlock():
+func unlock(emit: bool = true):
 	if is_active: return
 
 	is_active = true
 	sprite.modulate.a = 1
 	lock_node.hide()
 	lock_key.hide()
-	unlocked.emit(unlock_price)
+	if emit: unlocked.emit()
 
 
 func set_current_amount(amount):

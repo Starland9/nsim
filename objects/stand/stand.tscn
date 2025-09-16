@@ -61,7 +61,7 @@ horizontal_alignment = 1
 
 [node name="Powerup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_aqc80")
-volume_db = 10.0
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="button_up" from="LockKey" to="." method="_on_lock_key_button_up"]

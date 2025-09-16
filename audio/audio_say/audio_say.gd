@@ -22,17 +22,22 @@ func _get_random_stream(path: String):
 
 
 func play_dialog(stand: Stand):
-	match stand.product:
-		stand.StandProduct.BEIGNETS:
-			dialog_stream = _get_random_stream("/beignets")
-		stand.StandProduct.PLANTAINS:
-			dialog_stream = _get_random_stream("/plantain")
-		stand.StandProduct.MOMO:
-			dialog_stream = _get_random_stream("/momo")
-		stand.StandProduct.FISH:
-			dialog_stream = _get_random_stream("/fish")
-		stand.StandProduct.DRESS:
-			dialog_stream = _get_random_stream("/dress")
+	var rnd_voice = randi() % 3 + 1
+	if rnd_voice == 2:
+		dialog_stream = _get_random_stream("/any")
+	else:
+
+		match stand.product:
+			stand.StandProduct.BEIGNETS:
+				dialog_stream = _get_random_stream("/beignets")
+			stand.StandProduct.PLANTAINS:
+				dialog_stream = _get_random_stream("/plantain")
+			stand.StandProduct.MOMO:
+				dialog_stream = _get_random_stream("/momo")
+			stand.StandProduct.FISH:
+				dialog_stream = _get_random_stream("/fish")
+			stand.StandProduct.DRESS:
+				dialog_stream = _get_random_stream("/dress")
 
 	stream = dialog_stream
 	play()
