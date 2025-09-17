@@ -1,6 +1,6 @@
 extends Node
 
-const SAVE_PATH = "user://savegame.res"
+const SAVE_PATH = "user://savegame_v2.res"
 
 var data := SaveData.new()
 

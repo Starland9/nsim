@@ -10,21 +10,31 @@ const flying_coin_scene = preload("res://objects/flying_coin/flying_coin.tscn")
 @onready var bg_music = $BgMusic
 @onready var hud = $HUD
 @onready var flying_coins := $FlyingCoins
+@onready var clients := $Clients
 
 var _current_stand : Stand = null
-var _money = 500
+var _money = 0
 var _good_clients = 0
 var _bad_clients = 0
 var _unloked_stands : Array[Stand] = []
 
 func _ready() -> void:
-	_money = SaveManager.data.money
-	_good_clients = SaveManager.data.good_clients
-	_bad_clients = SaveManager.data.bad_clients
-	client_timer.wait_time = SaveManager.data.client_wait_time
+	_load_game_save()
 
 	randomize()
 	_init_stands()
+
+func _load_game_save():
+	var data := SaveManager.data
+	_update_money(data.money)
+
+	_good_clients = data.good_clients - 1
+	_add_good_client()
+
+	_bad_clients = data.bad_clients - 1
+	_add_bad_client()
+
+	client_timer.wait_time = SaveManager.data.client_wait_time
 
 func _pick_random_unlocked_stand():
 	return _unloked_stands.pick_random()
@@ -51,7 +61,7 @@ func _add_bad_client():
 
 func _init_client():
 	var client := client_scene.instantiate()
-	add_child(client)
+	clients.add_child(client)
 	client.position = Vector2(randf_range(0, 720), entry_point.position.y)
 	_current_stand = _pick_random_unlocked_stand()
 	client.set_target_stand(_current_stand)
@@ -77,12 +87,7 @@ func _on_client_wait_ended():
 	_update_money(-1000)
 
 func _on_clients_timer_timeout() -> void:
-	if _good_clients != 0 and _good_clients % 5 == 0 and client_timer.wait_time >= 1:
-		client_timer.wait_time = randi() % 5 + 1
-		SaveManager.data.client_wait_time = client_timer.wait_time
-		SaveManager.save_game()
-
-	for i in randi_range(1, int(_good_clients / 10)):
+	for i in randi_range(1, int(_good_clients / 10.0)):
 		_init_client()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -99,7 +104,7 @@ func _init_stands():
 			stand.unlock()
 			_unloked_stands.append(stand)
 		else:
-			stand.set_unlock_price(50 * (1 + randi() % 10))
+			stand.set_unlock_price(2500 * (1 + randi() % 10))
 			stand.lock()
 			stand.unlocked.connect(_on_stand_unlocked.bind(stand))
 
@@ -110,6 +115,8 @@ func _init_stands():
 func _on_stand_unlocked(stand: Stand):
 	_update_money(-stand.unlock_price)
 	_unloked_stands.append(stand)
+	client_timer.wait_time = stands.get_child_count() - _unloked_stands.size() + 1
+	SaveManager.data.client_wait_time = client_timer.wait_time
 	SaveManager.data.unlocked_stands_idx.get_or_add(stands.name, []).append(stand.name)
 	SaveManager.save_game()
 

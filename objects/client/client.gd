@@ -24,11 +24,17 @@ var _waiting := false
 func _ready() -> void:
 	var idx = randi_range(1, 7)
 	sprite.texture = load("res://assets/images/clients_head/sprite_" + str(idx) + ".png")
+	nav_agent.avoidance_enabled = true
+	nav_agent.avoidance_layers = 1
+	nav_agent.avoidance_mask = 1
+	nav_agent.radius = 24
 
 
 func set_target_stand(stand: Stand):
 	_target_stand = stand
-	nav_agent.target_position = stand.position
+	var padding := 80
+	var offset := Vector2(randf_range(-padding, padding), randf_range(-padding, padding))
+	nav_agent.target_position = stand.position + offset
 
 func set_exit(exitx: Node2D):
 	_exit_node = exitx

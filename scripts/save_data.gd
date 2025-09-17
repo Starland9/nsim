@@ -1,7 +1,7 @@
 extends Resource
 class_name SaveData
 
-@export var money: int = 500
+@export var money: int = 0
 @export var good_clients: int = 0
 @export var bad_clients: int = 0
 @export var client_wait_time: int = 3

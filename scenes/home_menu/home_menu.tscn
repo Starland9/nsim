@@ -63,7 +63,7 @@ text = "Ton petit marché à toi"
 horizontal_alignment = 1
 
 [node name="Stand" parent="." instance=ExtResource("5_rppr1")]
-position = Vector2(310, 410)
+position = Vector2(368, 504)
 
 [node name="Clients" type="Node2D" parent="."]
 
@@ -86,8 +86,9 @@ navigation_polygon = SubResource("NavigationPolygon_6tg2y")
 
 [node name="Buttons" type="Control" parent="."]
 anchors_preset = 0
+offset_top = 136.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 176.0
 
 [node name="PlayBtn" type="TextureButton" parent="Buttons"]
 layout_mode = 1
