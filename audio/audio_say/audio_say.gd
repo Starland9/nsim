@@ -28,15 +28,15 @@ func play_dialog(stand: Stand):
 	else:
 
 		match stand.product:
-			stand.StandProduct.BEIGNETS:
+			stand.StandProduct.beignets:
 				dialog_stream = _get_random_stream("/beignets")
-			stand.StandProduct.PLANTAINS:
+			stand.StandProduct.plantains:
 				dialog_stream = _get_random_stream("/plantain")
-			stand.StandProduct.MOMO:
+			stand.StandProduct.momo:
 				dialog_stream = _get_random_stream("/momo")
-			stand.StandProduct.FISH:
+			stand.StandProduct.poisson_braise:
 				dialog_stream = _get_random_stream("/fish")
-			stand.StandProduct.DRESS:
+			stand.StandProduct.tshirts:
 				dialog_stream = _get_random_stream("/dress")
 
 	stream = dialog_stream

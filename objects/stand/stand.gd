@@ -4,11 +4,28 @@ class_name Stand
 signal unlocked()
 
 enum StandProduct {
-	BEIGNETS = 2,
-	PLANTAINS = 3,
-	MOMO = 4,
-	FISH = 5,
-	DRESS = 6,
+	arachides,
+	beignets,
+	bracelets,
+	cd,
+	chapeaux,
+	coiffure,
+	epices,
+	folere,
+	fruits,
+	legumes,
+	manioc,
+	momo,
+	pagnes,
+	pain,
+	pistache,
+	plantains,
+	poisson_braise,
+	produits_beaute,
+	prunes,
+	sacs,
+	sandales,
+	tshirts
 }
 
 @onready var sprite := $ColorRect
@@ -17,7 +34,7 @@ enum StandProduct {
 @onready var lock_key = $LockKey
 @onready var powerup_sound := $Powerup
 
-@export var product : StandProduct = StandProduct.BEIGNETS
+@export var product : StandProduct = StandProduct.arachides
 @export var unlock_price := 0
 @export var is_active := false
 @export var can_unlock := false
@@ -25,8 +42,8 @@ var _current_amount := 0
 @export var service_time := 10
 
 func _ready() -> void:
-	product = StandProduct.values().pick_random()
-	sprite.texture = load("res://assets/images/stands/sprite_" + str(product) + ".png")
+	var product_idx = StandProduct.keys().pick_random()
+	sprite.texture = load("res://assets/images/stands/village/" + str(product_idx) + ".png")
 	unlock()
 
 func set_unlock_price(price: int):
@@ -35,12 +52,6 @@ func set_unlock_price(price: int):
 
 func get_product_text():
 	match product:
-		StandProduct.BEIGNETS: return "Beignets"
-		StandProduct.PLANTAINS: return "Plantains"
-		StandProduct.MOMO: return "Mobile Money"
-		StandProduct.FISH: return "Poissons"
-		StandProduct.DRESS: return "Vêtements"
-
 		_: return "Produit"
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

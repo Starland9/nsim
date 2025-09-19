@@ -1,62 +1,74 @@
 [gd_scene load_steps=9 format=3 uid="uid://bviqdl6dsj02q"]
 
 [ext_resource type="Script" uid="uid://bashpwg818gj4" path="res://objects/stand/stand.gd" id="1_vidql"]
-[ext_resource type="Texture2D" uid="uid://cuhqef3evggeo" path="res://assets/images/stands/sprite_2.png" id="2_w505n"]
+[ext_resource type="Texture2D" uid="uid://8yogf56x2h23" path="res://assets/images/stands/village/coiffure.png" id="2_aqc80"]
 [ext_resource type="Texture2D" uid="uid://cyjaheovfqujv" path="res://assets/images/gui/Icon_Small_WhiteOutline_Logk.svg" id="3_txc3r"]
 [ext_resource type="FontFile" uid="uid://bj6wd0cfx5wlv" path="res://assets/fonts/RubikMonoOne-Regular.ttf" id="4_nk3fe"]
 [ext_resource type="Texture2D" uid="uid://bj3tgbltndgbb" path="res://assets/images/gui/Icon_Small_WhiteOutline_Key.svg" id="4_u01mw"]
 [ext_resource type="AudioStream" uid="uid://dwkrsnr6gabqh" path="res://assets/sfx/Powerup.wav" id="6_aqc80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb6yx"]
-size = Vector2(269, 345)
+size = Vector2(224, 248)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w505n"]
-size = Vector2(299, 359)
+size = Vector2(240, 264)
 
 [node name="Stand" type="StaticBody2D"]
 script = ExtResource("1_vidql")
 
 [node name="ColorRect" type="Sprite2D" parent="."]
-texture = ExtResource("2_w505n")
+texture = ExtResource("2_aqc80")
 region_rect = Rect2(48, 96, 296, 344)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_yb6yx")
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_w505n")
 
 [node name="LockKey" type="TextureButton" parent="."]
-offset_left = -80.0
-offset_top = -80.0
-offset_right = 90.0
-offset_bottom = 86.0
+visible = false
+offset_left = -56.0
+offset_top = -64.0
+offset_right = 114.0
+offset_bottom = 102.0
+scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("4_u01mw")
 
 [node name="Lock" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -40)
 
 [node name="Sprite2D" type="Sprite2D" parent="Lock"]
+position = Vector2(0, 15.999999)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_txc3r")
 
 [node name="Label" type="Label" parent="Lock"]
 offset_left = -96.0
-offset_top = 104.0
+offset_top = 88.0
 offset_right = 95.0
-offset_bottom = 160.0
+offset_bottom = 144.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("4_nk3fe")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 30
 text = "20000"
 horizontal_alignment = 1
 
 [node name="Powerup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_aqc80")
 volume_db = -10.0
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(128, -128, 128, 128, -128, 128, -128, -128)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="button_up" from="LockKey" to="." method="_on_lock_key_button_up"]

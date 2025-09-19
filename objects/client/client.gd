@@ -41,7 +41,6 @@ func set_exit(exitx: Node2D):
 
 func go_to_exit():
 	wait_ended.emit()
-	shape.disabled = true
 	_target_stand = null
 	if _exit_node:
 		nav_agent.target_position = _exit_node.position
@@ -74,7 +73,6 @@ func wait():
 		dialog_wait.set_max_wait_time(_target_stand.service_time)
 		dialog_card.set_text(str((randi() % 10)))
 		dialog_wait.show()
-		enable_shape()
 
 		say(_target_stand.get_product_text())
 
@@ -92,7 +90,6 @@ func say(something: String):
 func _on_dialog_wait_wait_time_ended() -> void:
 	audio_say.play_mouf()
 	go_to_exit()
-	disable_shape()
 
 func exit():
 	queue_free()

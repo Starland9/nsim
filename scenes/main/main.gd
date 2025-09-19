@@ -68,7 +68,7 @@ func _init_client():
 	client.set_exit(exit_point)
 	client.buyed.connect(_on_client_buyed)
 	client.wait_ended.connect(_on_client_wait_ended)
-	client.scale /= 2.8
+	client.scale /= 2.5
 
 func _show_flying_coin(client_pos: Vector2):
 	var coin : FlyingCoin = flying_coin_scene.instantiate()
